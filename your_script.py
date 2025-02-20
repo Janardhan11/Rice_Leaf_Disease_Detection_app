@@ -9,7 +9,7 @@ MODEL_PATH = os.path.join(os.path.dirname(__file__), "rice_leaf_disease_model.ke
 model = tf.keras.models.load_model(MODEL_PATH)
 
 # Define class labels (update as per your dataset)
-class_labels = ["Bacterialblight", "Blast", "Brownspot", "Tungro"]
+class_labels = ["Bacterial Blight", "Blast", "Brown Spot", "Tungro"]
 
 # Streamlit UI
 st.title("🌾 Rice Leaf Disease Detection")
@@ -19,14 +19,14 @@ st.write("Upload a rice leaf image and the AI will predict the disease!")
 uploaded_file = st.file_uploader("Choose a leaf image...", type=["jpg", "png", "jpeg"])
 
 if uploaded_file is not None:
+    # Check file size (Max: 200MB)
     uploaded_file.seek(0, os.SEEK_END)
     file_size = uploaded_file.tell() / (1024 * 1024)  # Convert to MB
-    uploaded_file.seek(0)  # Reset file pointer
+    uploaded_file.seek(0)
 
     if file_size > 200:
-        st.error(f"❌ The uploaded file is {file_size:.2f}MB, which exceeds the 200MB limit. Please upload a smaller file.")
+        st.error(f"❌ File size is {file_size:.2f}MB. Please upload an image under 200MB.")
     else:
-        st.success(f"✅ File uploaded successfully! Size: {file_size:.2f}MB")
         # Display uploaded image
         image = Image.open(uploaded_file)
         st.image(image, caption="Uploaded Leaf Image", use_container_width=True)
@@ -42,12 +42,13 @@ if uploaded_file is not None:
         confidence = np.max(prediction)  # Confidence score
 
         # Show results
-        st.success(f"**Prediction:** {class_labels[predicted_class]}")
-        st.info(f"**Confidence Score:** {confidence:.2f}")
+        st.success(f"🌿 **Prediction:** {class_labels[predicted_class]}")
+        st.info(f"📊 **Confidence Score:** {confidence:.2f}")
 
         # Add download button (optional)
+        result_text = f"Disease: {class_labels[predicted_class]}\nConfidence: {confidence:.2f}"
         st.download_button(
             label="📥 Download Result",
-            data=f"Disease: {class_labels[predicted_class]}\nConfidence: {confidence:.2f}",
+            data=result_text,
             file_name="prediction.txt"
         )
