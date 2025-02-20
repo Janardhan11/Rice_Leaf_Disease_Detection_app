@@ -21,7 +21,7 @@ uploaded_file = st.file_uploader("Choose a leaf image...", type=["jpg", "png", "
 if uploaded_file is not None:
     # Display uploaded image
     image = Image.open(uploaded_file)
-    st.image(image, caption="Uploaded Leaf Image", use_column_width=True)
+    st.image(image, caption="Uploaded Leaf Image", use_container_width=True)
     
     # Preprocess image for model
     image = image.resize((224, 224))  # Resize to match MobileNetV2 input
