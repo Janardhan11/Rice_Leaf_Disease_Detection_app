@@ -2,9 +2,10 @@ import streamlit as st
 import numpy as np
 import tensorflow as tf
 from PIL import Image
+import os
 
 # Load trained model
-MODEL_PATH = "D:/Janardhan resume/model/rice_leaf_disease_model.keras"
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "rice_leaf_disease_model.keras")
 model = tf.keras.models.load_model(MODEL_PATH)
 
 # Define class labels (update as per your dataset)
