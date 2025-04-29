@@ -1,4 +1,4 @@
-🌾 Rice Leaf Disease Recognition using Deep Learning
+# 🌾 Rice Leaf Disease Recognition using Deep Learning
 ## Overview
 This project aims to develop a lightweight and accurate deep learning model to recognize and classify diseases in rice leaves. Early detection of leaf diseases plays a crucial role in preventing crop loss and improving agricultural productivity. The model is designed to be efficient enough for real-time usage, making it suitable for farmers and agricultural advisors even on low-resource devices.
 
