@@ -1,41 +1,72 @@
 # 🌾 Rice Leaf Disease Recognition using Deep Learning
-## Overview
-This project aims to develop a lightweight and accurate deep learning model to recognize and classify diseases in rice leaves. Early detection of leaf diseases plays a crucial role in preventing crop loss and improving agricultural productivity. The model is designed to be efficient enough for real-time usage, making it suitable for farmers and agricultural advisors even on low-resource devices.
 
-## Problem Statement
-Rice is a major food crop worldwide, and diseases affecting rice leaves can significantly reduce crop yields. Traditional disease detection methods are time-consuming and require expert knowledge. Automating this process using deep learning can provide a faster, more accessible solution to farmers, leading to early treatment and better crop management.
+This project is part of my **M.Sc. Data Science Thesis (GITAM University, 2024)**.  
+The goal is to detect and classify **rice leaf diseases** using **Convolutional Neural Networks (CNNs)** with **Transfer Learning** for deployment on edge devices (like mobile phones).
 
-## Approach
-### Data Collection and Preprocessing:
-Collected a dataset of 5,000+ images covering four categories: three major rice diseases and healthy leaves.Applied image augmentation techniques (rotation, zoom, horizontal flip, vertical flip, brightness adjustment, and cropping) to expand the dataset 3x, improving the model's robustness.
+---
 
-### Model Architecture:
-Used MobileNetV2, a lightweight and efficient Convolutional Neural Network (CNN), ideal for real-time applications. Fine-tuned the pre-trained MobileNetV2 model on the rice leaf dataset.
+## 🚀 Project Overview
+Rice is a staple food for more than half of the global population. Early and accurate detection of rice leaf diseases is crucial for sustainable agriculture.  
+Manual detection is time-consuming and error-prone. This project leverages **MobileNetV2** and compares its performance against **Custom VGG16** for efficient disease recognition.
 
-### Training:
-Implemented using TensorFlow/Keras. Achieved 90%+ classification accuracy with low training time and efficient model size. Used techniques like early stopping and learning rate adjustment for better performance.
+- **Dataset:** 5,932 rice leaf images (Bacterial Blight, Blast, Brown Spot, Tungro)  
+- **Techniques:** Data augmentation, Transfer Learning, Regularization  
+- **Goal:** Develop a lightweight model that can run on **edge devices** for farmers
 
-### Deployment:
-Built a real-time prediction web app using Gradio. The app allows users to upload rice leaf images and receive instant disease classification with an average inference time of 3 seconds per image.
+---
 
-## Tech Stack
-Python, TensorFlow / Keras, MobileNetV2, DNN, OpenCV, Gradio, Git & GitHub
+## 🛠️ Tech Stack
+- **Programming Language:** Python  
+- **Deep Learning Frameworks:** TensorFlow, Keras  
+- **Other Libraries:** NumPy, Pandas, OpenCV, Matplotlib, Scikit-learn  
+- **Deployment Tools:** (Optional) Gradio / Streamlit for demo  
 
-## Key Features
-Lightweight and fast model suitable for mobile and edge devices.
+---
 
-Real-time disease detection through a user-friendly web interface.
+## 📂 Dataset
+- Source: [Mendeley Dataset](https://data.mendeley.com/datasets/fwcj7stb8r/draft?a=d8923d70-cfc6-4c6c-adc0-640f10152fdf)  
+- Classes:
+  - 🌱 Bacterial Blight – 1,584 images  
+  - 🍂 Blast – 1,440 images  
+  - 🍁 Brown Spot – 1,600 images  
+  - 🍃 Tungro – 1,308 images  
 
-Dataset expansion through smart augmentation to improve model generalization.
+Total: **5,932 images**, expanded to **28,465 images** using augmentation.
 
-High classification accuracy with minimal resource usage.
+---
 
-## Future Work
-Expand the dataset to include more disease classes and real-field images.
+## 📊 Results
+- **MobileNetV2 Performance**
+  - Accuracy: **99.83%**
+  - Precision: **0.998**
+  - Recall: **0.998**
+  - F1 Score: **0.998**
+- **Comparison with VGG16**
+  - MobileNetV2 = 99.45% accuracy
+  - VGG16 = 99.57% accuracy
+- **Observation:** MobileNetV2 is **lighter and faster** → suitable for mobile apps.
 
-Deploy the model on Android/mobile devices.
+---
 
-Integrate with farm management systems for better usage at scale.
+## Sample Output
+- Input: Rice leaf image (captured by camera/mobile)  
+- Output: Predicted class (e.g., "Brown Spot") + Confidence score  
 
-## Hugging Faces link
-[🖥️ **Try the Real-Time App Here**](https://huggingface.co/spaces/JanardhanM/RiceLeafDiseaseDetection)
+## Sample demo video: 
+Deployment video: [Video](https://drive.google.com/file/d/1u7wo0aXab3fhRlnG6X85Ny7lRTf2z213/view?usp=sharing)
+---
+
+## ⚙️ How to Run
+```bash
+# Clone repo
+git clone https://github.com/YOUR_USERNAME/rice-leaf-disease.git
+cd rice-leaf-disease
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Train model
+python train.py
+
+# Test model
+python evaluate.py
