@@ -53,7 +53,7 @@ Total: **5,932 images**, expanded to **28,465 images** using augmentation.
 - Output: Predicted class (e.g., "Brown Spot") + Confidence score  
 
 ## Sample demo video: 
-Deployment video: [Video](https://drive.google.com/file/d/1u7wo0aXab3fhRlnG6X85Ny7lRTf2z213/view?usp=sharing)
+- Deployment video: [Video](https://drive.google.com/file/d/1u7wo0aXab3fhRlnG6X85Ny7lRTf2z213/view?usp=sharing)
 ---
 
 ## ⚙️ How to Run
